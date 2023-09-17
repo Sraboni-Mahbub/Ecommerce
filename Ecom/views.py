@@ -22,7 +22,13 @@ def loginPage(request):
         if user is not None:
             login(request, user)
             return redirect('home')
+        else:
+            messages.info('Username or password wrong')
     return render(request, 'ecom/login.html')
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
 
 def register(request):
 
