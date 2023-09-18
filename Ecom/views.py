@@ -23,7 +23,8 @@ def loginPage(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.info('Username or password wrong')
+            messages.info(request,'Username or password wrong')
+
     return render(request, 'ecom/login.html')
 
 def logoutUser(request):
@@ -42,8 +43,7 @@ def register(request):
             return redirect('login')
     context = {'form':form}
     return render(request, 'ecom/register.html', context)
-
-@login_required
+@login_required(login_url='/login/')
 def home(request):
     return render(request, 'ecom/home.html')
 
