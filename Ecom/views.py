@@ -44,7 +44,7 @@ def register(request):
     return render(request, 'ecom/register.html', context)
 
 
-@login_required
+@login_required(login_url='/login/')
 def home(request):
     return render(request, 'ecom/home.html')
 
